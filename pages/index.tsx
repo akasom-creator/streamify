@@ -2,9 +2,17 @@
 
 import { useState } from 'react';
 
+type Track = {
+  id: number;
+  title: string;
+  preview: string;
+  artist: { name: string };
+  album: { cover_medium: string };
+};
+
 export default function Home() {
   const [query, setQuery] = useState('');
-  const [tracks, setTracks] = useState([]);
+  const [tracks, setTracks] = useState<Track[]>([]);
 
   const searchSongs = async () => {
     if (!query) return;
@@ -42,7 +50,7 @@ export default function Home() {
           <h2 className="text-2xl font-semibold mb-4">Search Results</h2>
         )}
         <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {tracks.map((track: any) => (
+          {tracks.map((track) => (
             <div
               key={track.id}
               className="bg-[#181818] rounded-xl p-4 shadow hover:bg-[#282828] transition duration-300"
