@@ -1,7 +1,9 @@
 // next.config.js
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  allowedDevOrigins: ['http://192.168.85.206:3000'], // Replace with your actual IP if different
-}
+  images: {
+    domains: ['e-cdns-images.dzcdn.net', 'cdn-images.dzcdn.net'],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
